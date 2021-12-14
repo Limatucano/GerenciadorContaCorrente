@@ -20,5 +20,5 @@ data class Actions (
     val date : OffsetDateTime? = null,
     val description : String?,
     val actionTo : String?,
-    val contaCorrente : String,
+    val contaCorrente : String?,
 )

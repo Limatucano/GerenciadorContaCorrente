@@ -44,6 +44,12 @@ class MainFragment : Fragment() {
         viewBinding.nomeCliente.text = saudacaoCliente
         viewModel = ViewModelProvider(this,MainViewModelFactory(ActionsRepository(actionsDAO))).get(MainViewModel::class.java)
 
+        if(tipoConta == "VIP"){
+            viewBinding.btnVisita.visibility = View.VISIBLE
+        }
+        viewBinding.btnTrocarUsuario.setOnClickListener {
+            view.findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
+        }
         viewBinding.btnVerSaldo.setOnClickListener {
             viewModel.getValueByuser(contaCorrente)
             viewModel.saldo.observe(requireActivity(),{
@@ -52,6 +58,10 @@ class MainFragment : Fragment() {
             })
         }
 
+        viewBinding.btnExtrato.setOnClickListener{
+            val direction = MainFragmentDirections.actionMainFragmentToExtratoFragment(contaCorrente)
+            view.findNavController().navigate(direction)
+        }
         viewBinding.btnDeposito.setOnClickListener {
             val direction = MainFragmentDirections.actionMainFragmentToDepositoFragment(tipoConta!!, nome!!, contaCorrente)
             view.findNavController().navigate(direction)

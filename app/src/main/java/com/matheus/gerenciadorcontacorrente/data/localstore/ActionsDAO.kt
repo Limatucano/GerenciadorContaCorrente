@@ -17,4 +17,7 @@ interface ActionsDAO {
 
     @Insert()
     fun insertNewAction(action : Actions)
+
+    @Query("SELECT date, description, value FROM Actions WHERE contaCorrente = :contaCorrente")
+    fun getExtrato(contaCorrente : String) : List<Actions>
 }

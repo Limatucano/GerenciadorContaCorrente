@@ -17,8 +17,6 @@ class MainViewModel(private val actionsRepository: ActionsRepository) : ViewMode
             val valorAdd = actionsRepository.getMoreValueByUser(contaCorrente)
 
             val result = valorAdd - valorRetirado
-            Log.d("TESTE - add", valorAdd.toString())
-            Log.d("TESTE - retirado", valorRetirado.toString())
 
             saldo.postValue(result.toString())
         }

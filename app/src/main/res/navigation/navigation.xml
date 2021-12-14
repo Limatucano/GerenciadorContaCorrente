@@ -34,6 +34,12 @@
         <action
             android:id="@+id/action_mainFragment_to_depositoFragment"
             app:destination="@id/depositoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_extratoFragment"
+            app:destination="@id/extratoFragment" />
     </fragment>
     <fragment
         android:id="@+id/depositoFragment"
@@ -46,6 +52,15 @@
         <argument
             android:name="nome"
             app:argType="string" />
+        <argument
+            android:name="contaCorrente"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/extratoFragment"
+        android:name="com.matheus.gerenciadorcontacorrente.view.ExtratoFragment"
+        android:label="fragment_extrato"
+        tools:layout="@layout/fragment_extrato" >
         <argument
             android:name="contaCorrente"
             app:argType="string" />

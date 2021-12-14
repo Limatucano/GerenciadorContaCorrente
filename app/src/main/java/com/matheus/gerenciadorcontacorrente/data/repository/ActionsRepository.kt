@@ -10,4 +10,6 @@ class ActionsRepository(private val actionsDAO: ActionsDAO) {
     fun getMoreValueByUser(contaCorrente : String) : Double = actionsDAO.getMoreValueByUser(contaCorrente)
 
     fun insertNewAction(action : Actions) = actionsDAO.insertNewAction(action)
+
+    fun getExtrato(contaCorrente : String) : List<Actions> = actionsDAO.getExtrato(contaCorrente)
 }
