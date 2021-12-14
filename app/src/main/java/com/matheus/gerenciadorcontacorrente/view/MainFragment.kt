@@ -6,16 +6,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.matheus.gerenciadorcontacorrente.R
+import com.matheus.gerenciadorcontacorrente.data.localstore.Database
+import com.matheus.gerenciadorcontacorrente.data.repository.ActionsRepository
+import com.matheus.gerenciadorcontacorrente.data.repository.UserRepository
+import com.matheus.gerenciadorcontacorrente.databinding.FragmentMainBinding
+import com.matheus.gerenciadorcontacorrente.viewmodel.MainViewModel
+import com.matheus.gerenciadorcontacorrente.viewmodel.MainViewModelFactory
+import com.matheus.gerenciadorcontacorrente.viewmodel.loginViewModel
+import com.matheus.gerenciadorcontacorrente.viewmodel.loginViewModelFactory
 
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class MainFragment : Fragment() {
-    private var tipoCompra : String? = null
-    private var contaCorrente : String? = null
+    private var tipoConta : String? = null
+    lateinit var contaCorrente : String
     private var nome : String? = null
+    private lateinit var viewBinding : FragmentMainBinding
+    private lateinit var viewModel : MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundle = arguments
@@ -24,20 +33,37 @@ class MainFragment : Fragment() {
             return
         }
         val args = MainFragmentArgs.fromBundle(bundle)
-        tipoCompra = args.tipoConta
+        tipoConta = args.tipoConta
         contaCorrente = args.contaCorrente
         nome = args.nome
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val actionsDAO = context?.let { Database.getDatabase(it)?.actionsDAO() }!!
+        val saudacaoCliente = "Olá, ${nome}"
+        viewBinding.nomeCliente.text = saudacaoCliente
+        viewModel = ViewModelProvider(this,MainViewModelFactory(ActionsRepository(actionsDAO))).get(MainViewModel::class.java)
 
+        viewBinding.btnVerSaldo.setOnClickListener {
+            viewModel.getValueByuser(contaCorrente)
+            viewModel.saldo.observe(requireActivity(),{
+                val saldo = "R$ ${it}"
+                viewBinding.saldo.text = saldo
+            })
+        }
+
+        viewBinding.btnDeposito.setOnClickListener {
+            val direction = MainFragmentDirections.actionMainFragmentToDepositoFragment(tipoConta!!, nome!!, contaCorrente)
+            view.findNavController().navigate(direction)
+        }
 
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        viewBinding = FragmentMainBinding.inflate(inflater, container,false)
+        return viewBinding.root
     }
 
 }

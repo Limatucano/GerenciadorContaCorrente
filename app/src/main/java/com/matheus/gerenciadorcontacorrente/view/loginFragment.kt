@@ -42,6 +42,7 @@ class loginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         var direction : NavDirections? = null
         val userDAO = context?.let { Database.getDatabase(it)?.userDAO() }!!
+
         viewModel = ViewModelProvider(this, loginViewModelFactory(UserRepository(userDAO))).get(loginViewModel::class.java)
 
         val matheus = User(

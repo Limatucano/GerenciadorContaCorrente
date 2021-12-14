@@ -3,10 +3,14 @@ package com.matheus.gerenciadorcontacorrente.data.localstore
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
-@androidx.room.Database(entities = [User::class], version = 1, exportSchema = false)
+import androidx.room.TypeConverters
+
+@TypeConverters(TypeConverterUtil::class)
+@androidx.room.Database(entities = [User::class, Actions::class], version = 5, exportSchema = false)
 abstract class Database : RoomDatabase() {
 
     abstract fun userDAO() : UserDAO
+    abstract fun actionsDAO() : ActionsDAO
 
     companion object{
         @Volatile
@@ -22,7 +26,7 @@ abstract class Database : RoomDatabase() {
                     context.applicationContext,
                     Database::class.java,
                     "gerenciador_conta_corrente"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }

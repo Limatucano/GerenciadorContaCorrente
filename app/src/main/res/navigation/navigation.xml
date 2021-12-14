@@ -31,5 +31,23 @@
         <argument
             android:name="contaCorrente"
             app:argType="string" />
+        <action
+            android:id="@+id/action_mainFragment_to_depositoFragment"
+            app:destination="@id/depositoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/depositoFragment"
+        android:name="com.matheus.gerenciadorcontacorrente.view.DepositoFragment"
+        android:label="fragment_deposito"
+        tools:layout="@layout/fragment_deposito" >
+        <argument
+            android:name="tipoConta"
+            app:argType="string" />
+        <argument
+            android:name="nome"
+            app:argType="string" />
+        <argument
+            android:name="contaCorrente"
+            app:argType="string" />
     </fragment>
 </navigation>

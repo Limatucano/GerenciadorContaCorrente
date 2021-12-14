@@ -6,6 +6,9 @@
     <string name="btn_entrar">Entrar</string>
     <string name="saldo">Saldo:</string>
     <string name="ver_saldo">Ver Saldo</string>
+    <string name="depositar">Depositar</string>
+    <string name="valor">Valor</string>
+    <string name="descricao">Descrição</string>
     <string name="extrato">Extrato</string>
     <string name="saque">Saque</string>
     <string name="deposito">Depósito</string>

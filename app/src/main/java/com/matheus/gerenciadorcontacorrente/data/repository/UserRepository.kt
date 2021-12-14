@@ -1,5 +1,6 @@
 package com.matheus.gerenciadorcontacorrente.data.repository
 
+import com.matheus.gerenciadorcontacorrente.data.localstore.Actions
 import com.matheus.gerenciadorcontacorrente.data.localstore.User
 import com.matheus.gerenciadorcontacorrente.data.localstore.UserDAO
 
