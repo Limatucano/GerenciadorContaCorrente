@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GerenciadorContaCorrente</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="conta_corrente">Conta Corrente</string>
+    <string name="senha">Senha</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="saldo">Saldo:</string>
+    <string name="ver_saldo">Ver Saldo</string>
+    <string name="extrato">Extrato</string>
+    <string name="saque">Saque</string>
+    <string name="deposito">Depósito</string>
+    <string name="transferencia">Transferência</string>
+    <string name="solicitar_visita_do_gerente">Solicitar visita do gerente</string>
+    <string name="trocar_de_usuario">Trocar de usuário</string>
+</resources>
