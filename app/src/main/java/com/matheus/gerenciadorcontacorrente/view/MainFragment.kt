@@ -62,6 +62,10 @@ class MainFragment : Fragment() {
             val direction = MainFragmentDirections.actionMainFragmentToExtratoFragment(contaCorrente)
             view.findNavController().navigate(direction)
         }
+        viewBinding.btnVisita.setOnClickListener {
+            val direction = MainFragmentDirections.actionMainFragmentToVisitaFragment(contaCorrente)
+            view.findNavController().navigate(direction)
+        }
         viewBinding.btnDeposito.setOnClickListener {
             val direction = MainFragmentDirections.actionMainFragmentToDepositoFragment(tipoConta!!, nome!!, contaCorrente)
             view.findNavController().navigate(direction)

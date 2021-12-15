@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_mainFragment_to_extratoFragment"
             app:destination="@id/extratoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_visitaFragment"
+            app:destination="@id/visitaFragment" />
     </fragment>
     <fragment
         android:id="@+id/depositoFragment"
@@ -61,6 +64,15 @@
         android:name="com.matheus.gerenciadorcontacorrente.view.ExtratoFragment"
         android:label="fragment_extrato"
         tools:layout="@layout/fragment_extrato" >
+        <argument
+            android:name="contaCorrente"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/visitaFragment"
+        android:name="com.matheus.gerenciadorcontacorrente.view.VisitaFragment"
+        android:label="fragment_visita"
+        tools:layout="@layout/fragment_visita" >
         <argument
             android:name="contaCorrente"
             app:argType="string" />

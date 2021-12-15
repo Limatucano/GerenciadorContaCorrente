@@ -9,10 +9,13 @@
     <string name="depositar">Depositar</string>
     <string name="valor">Valor</string>
     <string name="descricao">Descrição</string>
+    <string name="confirmar">Confirmar</string>
     <string name="extrato">Extrato</string>
     <string name="saque">Saque</string>
     <string name="deposito">Depósito</string>
     <string name="transferencia">Transferência</string>
     <string name="solicitar_visita_do_gerente">Solicitar visita do gerente</string>
     <string name="trocar_de_usuario">Trocar de usuário</string>
+    <string name="deseja_confirmar_a_visita_do_gerente">Deseja confirmar a visita do gerente?</string>
+    <string name="mensagem_atencao_visita">Será debitado o valor de R$ 50.00 após a confirmação e não será possível realizar o estorno do valor.</string>
 </resources>
