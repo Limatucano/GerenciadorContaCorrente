@@ -43,6 +43,12 @@
         <action
             android:id="@+id/action_mainFragment_to_visitaFragment"
             app:destination="@id/visitaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_transferenciaFragment"
+            app:destination="@id/transferenciaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_saqueFragment"
+            app:destination="@id/saqueFragment" />
     </fragment>
     <fragment
         android:id="@+id/depositoFragment"
@@ -75,6 +81,30 @@
         tools:layout="@layout/fragment_visita" >
         <argument
             android:name="contaCorrente"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferenciaFragment"
+        android:name="com.matheus.gerenciadorcontacorrente.view.TransferenciaFragment"
+        android:label="fragment_transferencia"
+        tools:layout="@layout/fragment_transferencia" >
+        <argument
+            android:name="contaCorrente"
+            app:argType="string" />
+        <argument
+            android:name="tipoConta"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/saqueFragment"
+        android:name="com.matheus.gerenciadorcontacorrente.view.SaqueFragment"
+        android:label="fragment_saque"
+        tools:layout="@layout/fragment_saque" >
+        <argument
+            android:name="contaCorrente"
+            app:argType="string" />
+        <argument
+            android:name="tipoConta"
             app:argType="string" />
     </fragment>
 </navigation>

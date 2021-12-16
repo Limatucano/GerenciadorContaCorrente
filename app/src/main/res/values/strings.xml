@@ -4,7 +4,11 @@
     <string name="conta_corrente">Conta Corrente</string>
     <string name="senha">Senha</string>
     <string name="btn_entrar">Entrar</string>
+    <string name="confirmar_transferencia">Confirmar transferência</string>
+    <string name="confirmar_saque">Confirmar saque</string>
     <string name="saldo">Saldo:</string>
+    <string name="meu_saldo">Meu saldo:</string>
+    <string name="meu_tipo">Tipo de conta:</string>
     <string name="ver_saldo">Ver Saldo</string>
     <string name="depositar">Depositar</string>
     <string name="valor">Valor</string>

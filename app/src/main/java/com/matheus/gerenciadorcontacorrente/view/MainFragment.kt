@@ -58,6 +58,14 @@ class MainFragment : Fragment() {
             })
         }
 
+        viewBinding.btnSaque.setOnClickListener {
+            val direction = MainFragmentDirections.actionMainFragmentToSaqueFragment(contaCorrente, tipoConta!!)
+            view.findNavController().navigate(direction)
+        }
+        viewBinding.btnTransferencia.setOnClickListener {
+            val direction = MainFragmentDirections.actionMainFragmentToTransferenciaFragment(contaCorrente, tipoConta!!)
+            view.findNavController().navigate(direction)
+        }
         viewBinding.btnExtrato.setOnClickListener{
             val direction = MainFragmentDirections.actionMainFragmentToExtratoFragment(contaCorrente)
             view.findNavController().navigate(direction)
